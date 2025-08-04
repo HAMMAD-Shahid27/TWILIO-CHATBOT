@@ -4,7 +4,7 @@ A sophisticated AI-powered voice chatbot built with Twilio, OpenAI, and Python t
 
 ## DEMO
 
-![Demo](https://github.com/HAMMAD-Shahid27/AI-Photo-Restoration/blob/main/before_after_grid.png)
+![Demo](https://github.com/HAMMAD-Shahid27/TWILIO-CHATBOT/blob/main/CHATBOT.gif)
 
 ## ✨ Features
 
