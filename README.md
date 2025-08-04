@@ -2,6 +2,10 @@
 
 A sophisticated AI-powered voice chatbot built with Twilio, OpenAI, and Python that can handle natural conversations over phone calls.
 
+## DEMO
+
+![Demo](https://github.com/HAMMAD-Shahid27/AI-Photo-Restoration/blob/main/before_after_grid.png)
+
 ## ✨ Features
 
 - **Natural Voice Conversations**: Powered by OpenAI's GPT models for human-like responses
