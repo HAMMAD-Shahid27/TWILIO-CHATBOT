@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Twilio Callbot - AI Voice Assistant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-robot me-2"></i>
+                LLM Twilio Callbot
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#demo">Demo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#docs">Documentation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard">Dashboard</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h1 class="display-4 fw-bold mb-4">
+                        AI-Powered Voice Assistant
+                    </h1>
+                    <p class="lead mb-4">
+                        Experience the future of customer service with our intelligent voice chatbot. 
+                        Powered by OpenAI's GPT and Twilio's voice technology.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#demo" class="btn btn-primary btn-lg me-3">
+                            <i class="fas fa-play me-2"></i>
+                            Try Demo
+                        </a>
+                        <a href="https://github.com/HAMMAD-Shahid27/llm-twilio-callbot" class="btn btn-outline-primary btn-lg">
+                            <i class="fab fa-github me-2"></i>
+                            View on GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-5 bg-light">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-5 fw-bold mb-3">Key Features</h2>
+                    <p class="lead">Advanced AI capabilities for natural voice conversations</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card text-center p-4">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-brain fa-3x text-primary"></i>
+                        </div>
+                        <h4>AI-Powered Responses</h4>
+                        <p>Powered by OpenAI's GPT models for intelligent, contextual conversations</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card text-center p-4">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-microphone fa-3x text-primary"></i>
+                        </div>
+                        <h4>Natural Speech Recognition</h4>
+                        <p>Advanced speech-to-text with high accuracy and multi-language support</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card text-center p-4">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-volume-up fa-3x text-primary"></i>
+                        </div>
+                        <h4>High-Quality Voice Synthesis</h4>
+                        <p>Natural-sounding text-to-speech with customizable voices</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card text-center p-4">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-history fa-3x text-primary"></i>
+                        </div>
+                        <h4>Conversation Memory</h4>
+                        <p>Maintains context throughout conversations for seamless interactions</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card text-center p-4">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-chart-line fa-3x text-primary"></i>
+                        </div>
+                        <h4>Analytics & Monitoring</h4>
+                        <p>Comprehensive logging and analytics for performance insights</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card text-center p-4">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-shield-alt fa-3x text-primary"></i>
+                        </div>
+                        <h4>Enterprise Security</h4>
+                        <p>Secure, scalable, and production-ready with rate limiting</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-4">Live Demo</h2>
+                    <p class="lead mb-5">Experience the chatbot in action</p>
+                    
+                    <div class="demo-container">
+                        <div class="demo-phone">
+                            <div class="phone-screen">
+                                <div class="phone-header">
+                                    <i class="fas fa-robot"></i>
+                                    <span>AI Assistant</span>
+                                </div>
+                                <div class="conversation-area" id="conversationArea">
+                                    <div class="message bot-message">
+                                        <div class="message-content">
+                                            Hello! I'm Alex, your AI assistant. How can I help you today?
+                                        </div>
+                                        <div class="message-time">Just now</div>
+                                    </div>
+                                </div>
+                                <div class="phone-input">
+                                    <input type="text" id="demoInput" placeholder="Type your message..." class="form-control">
+                                    <button class="btn btn-primary" onclick="sendDemoMessage()">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <p class="text-muted">
+                            <i class="fas fa-info-circle me-2"></i>
+                            This is a simulated demo. For real voice calls, set up your own instance.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation Section -->
+    <section id="docs" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-5 fw-bold text-center mb-5">Quick Start Guide</h2>
+                    
+                    <div class="accordion" id="docsAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#setup">
+                                    <i class="fas fa-cog me-2"></i>
+                                    Setup & Installation
+                                </button>
+                            </h2>
+                            <div id="setup" class="accordion-collapse collapse show" data-bs-parent="#docsAccordion">
+                                <div class="accordion-body">
+                                    <ol>
+                                        <li>Clone the repository: <code>git clone https://github.com/yourusername/llm-twilio-callbot.git</code></li>
+                                        <li>Install dependencies: <code>pip install -r requirements.txt</code></li>
+                                        <li>Copy environment file: <code>cp env.example .env</code></li>
+                                        <li>Configure your API keys in <code>.env</code></li>
+                                        <li>Run the application: <code>python app.py</code></li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#twilio">
+                                    <i class="fab fa-twilio me-2"></i>
+                                    Twilio Configuration
+                                </button>
+                            </h2>
+                            <div id="twilio" class="accordion-collapse collapse" data-bs-parent="#docsAccordion">
+                                <div class="accordion-body">
+                                    <ol>
+                                        <li>Create a Twilio account and get a phone number</li>
+                                        <li>Set up ngrok: <code>ngrok http 5000</code></li>
+                                        <li>Configure webhook URL in Twilio console</li>
+                                        <li>Set webhook to: <code>https://your-ngrok-url.ngrok.io/webhook</code></li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#customization">
+                                    <i class="fas fa-palette me-2"></i>
+                                    Customization
+                                </button>
+                            </h2>
+                            <div id="customization" class="accordion-collapse collapse" data-bs-parent="#docsAccordion">
+                                <div class="accordion-body">
+                                    <p>Customize the bot personality in <code>config/settings.py</code>:</p>
+                                    <pre><code>BOT_PERSONALITY = {
+    "name": "Your Bot Name",
+    "tone": "friendly and professional",
+    "specialties": ["customer service", "support"]
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>LLM Twilio Callbot</h5>
+                    <p class="text-muted">AI-powered voice chatbot for modern customer service</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="social-links">
+                        <a href="https://github.com/HAMMAD-Shahid27/llm-twilio-callbot" class="text-light me-3">
+                            <i class="fab fa-github fa-lg"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/hammad-shahid-23a560350/" class="text-light me-3">
+                            <i class="fab fa-linkedin fa-lg"></i>
+                        </a>
+                        <a href="mailto:hammadshahid980@gmail.com" class="text-light">
+                            <i class="fas fa-envelope fa-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-3">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="text-muted mb-0">
+                        &copy; 2024 LLM Twilio Callbot.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Demo functionality
+        function sendDemoMessage() {
+            const input = document.getElementById('demoInput');
+            const message = input.value.trim();
+            
+            if (message) {
+                addMessage('user', message);
+                input.value = '';
+                
+                // Simulate bot response
+                setTimeout(() => {
+                    const responses = [
+                        "I understand your question. Let me help you with that.",
+                        "That's a great question! Here's what I can tell you...",
+                        "I'd be happy to assist you with that.",
+                        "Let me provide you with the information you need."
+                    ];
+                    const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                    addMessage('bot', randomResponse);
+                }, 1000);
+            }
+        }
+        
+        function addMessage(sender, content) {
+            const conversationArea = document.getElementById('conversationArea');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}-message`;
+            
+            messageDiv.innerHTML = `
+                <div class="message-content">${content}</div>
+                <div class="message-time">Just now</div>
+            `;
+            
+            conversationArea.appendChild(messageDiv);
+            conversationArea.scrollTop = conversationArea.scrollHeight;
+        }
+        
+        // Handle Enter key in demo input
+        document.getElementById('demoInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendDemoMessage();
+            }
+        });
+    </script>
+</body>
+</html> 
